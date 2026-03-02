@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-terracotta: #D2796D;
+  --color-sage: #A3B18A;
+  --color-peach-cream: #FDF5E6;
+  --color-off-white: #FAF9F6;
+  --color-text-dark: #333333;
+}
+
+@layer base {
+  :root {
+    --background: #FAF9F6;
+    --foreground: #333333;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-playfair), serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-terracotta);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e38d82;
+}
+
+/* Glassmorphism helpers */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(210, 121, 109, 0.15);
+}
+
+.glow-warm {
+  box-shadow: 0 0 30px rgba(163, 177, 138, 0.15);
+}
