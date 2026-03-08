@@ -58,7 +58,7 @@ export default function Navbar() {
                         </a>
                     ))}
                     <a
-                        href="#contact"
+                        href="contact"
                         className="px-5 py-2 text-sm font-semibold rounded-full bg-[#D2796D] text-white hover:bg-[#c26a5f] transition-all shadow-md"
                     >
                         Let's Collaborate

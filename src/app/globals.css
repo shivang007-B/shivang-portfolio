@@ -1,25 +1,34 @@
 @import "tailwindcss";
 
 @theme {
-  --color-terracotta: #D2796D;
-  --color-sage: #A3B18A;
-  --color-peach-cream: #FDF5E6;
-  --color-off-white: #FAF9F6;
-  --color-text-dark: #333333;
+  --color-electric-blue: #00f0ff;
+  --color-neon-blue: #0A84FF;
+  --color-cyber-gold: #FFD700;
+  --color-cyber-purple: #B200FF;
+  --color-dark-base: #0a0a0a;
+  --color-off-white: #e0e0e0;
+  --font-space: var(--font-space);
+  --font-inter: var(--font-inter);
 }
 
 @layer base {
   :root {
-    --background: #FAF9F6;
-    --foreground: #333333;
+    --background: #0a0a0a;
+    --foreground: #e0e0e0;
   }
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  /* Digital Blueprint background */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-attachment: fixed;
 }
 
 h1,
@@ -28,7 +37,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-playfair), serif;
+  font-family: var(--font-space), sans-serif;
 }
 
 html {
@@ -37,7 +46,7 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -45,26 +54,33 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-terracotta);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #e38d82;
+  background: var(--color-electric-blue);
 }
 
 /* Glassmorphism helpers */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glow {
-  box-shadow: 0 0 20px rgba(210, 121, 109, 0.15);
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
 }
 
 .glow-warm {
-  box-shadow: 0 0 30px rgba(163, 177, 138, 0.15);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #00f0ff, #B200FF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

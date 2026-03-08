@@ -1,121 +1,132 @@
 "use client";
+import React, { useRef, useMemo, Suspense } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Text, Float, Stars, MeshDistortMaterial } from "@react-three/drei";
 import { motion } from "framer-motion";
+import * as THREE from "three";
 
-const categories = [
-    {
-        title: "Programming",
-        items: [
-            { name: "C / C++", level: 90 },
-            { name: "Python", level: 85 },
-            { name: "JavaScript / TypeScript", level: 80 },
-        ],
-    },
-    {
-        title: "Web Development",
-        items: [
-            { name: "React / Next.js", level: 85 },
-            { name: "Node.js / Express", level: 75 },
-            { name: "Tailwind CSS / HTML / CSS", level: 95 },
-        ],
-    },
-    {
-        title: "Core Concepts",
-        items: [
-            { name: "Data Structures & Algorithms", level: 90 },
-            { name: "Object-Oriented Programming", level: 85 },
-            { name: "Database Management System", level: 80 },
-        ],
-    },
-    {
-        title: "Tools & Technologies",
-        items: [
-            { name: "Git & GitHub", level: 90 },
-            { name: "Docker", level: 60 },
-            { name: "Figma", level: 75 },
-        ],
-    },
+const SKILLS = [
+    { name: "React", color: "#61DAFB" },
+    { name: "Next.js", color: "#ffffff" },
+    { name: "TypeScript", color: "#3178C6" },
+    { name: "Node.js", color: "#339933" },
+    { name: "Python", color: "#3776AB" },
+    { name: "web designing", color: "#00f0ff" },
+    { name: "AI/ML", color: "#B200FF" },
+    { name: "Tailwind", color: "#06B6D4" },
+    { name: "MongoDB", color: "#47A248" },
+    { name: "Figma", color: "#F24E1E" },
 ];
+
+function OrbitingSkill({ name, color, radius, speed, offset }: any) {
+    const ref = useRef<THREE.Group>(null!);
+    const { camera } = useThree();
+
+    useFrame(({ clock }) => {
+        if (!ref.current) return;
+        const t = clock.getElapsedTime() * speed + offset;
+        const x = Math.cos(t) * radius;
+        const z = Math.sin(t) * radius;
+        const y = Math.sin(t * 0.5) * 2; // Subtle vertical wave
+        ref.current.position.set(x, y, z);
+
+        // Smoothly point at camera
+        ref.current.lookAt(camera.position);
+    });
+
+    return (
+        <group ref={ref}>
+            <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
+                <Text
+                    fontSize={0.8}
+                    color={color}
+                    anchorX="center"
+                    anchorY="middle"
+                    outlineWidth={0.02}
+                    outlineColor="#000"
+                >
+                    {name}
+                </Text>
+            </Float>
+        </group>
+    );
+}
+
+function CentralCore() {
+    return (
+        <mesh>
+            <sphereGeometry args={[1.2, 64, 64]} />
+            <MeshDistortMaterial
+                color="#00D1FF"
+                speed={3}
+                distort={0.4}
+                radius={1}
+                emissive="#00D1FF"
+                emissiveIntensity={2}
+            />
+        </mesh>
+    );
+}
+
+function Scene() {
+    const groupRef = useRef<THREE.Group>(null!);
+
+    useFrame((state) => {
+        // Subtle rotation of the entire universe
+        if (groupRef.current) {
+            groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.05;
+        }
+    });
+
+    return (
+        <group ref={groupRef}>
+            <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+            <CentralCore />
+            <pointLight intensity={10} color="#00D1FF" distance={20} />
+
+            {SKILLS.map((skill, i) => (
+                <OrbitingSkill
+                    key={skill.name}
+                    name={skill.name}
+                    color={skill.color}
+                    radius={7 + i * 0.8} // Spiraling out
+                    speed={0.2 + Math.random() * 0.2}
+                    offset={i * (Math.PI * 2 / SKILLS.length)}
+                />
+            ))}
+        </group>
+    );
+}
 
 export default function Skills() {
     return (
-        <section id="skills" className="py-32 bg-[#05020a] relative border-t border-purple-900/20">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-[1px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-
-            <div className="max-w-7xl mx-auto px-6 md:px-12">
-                <div className="text-center mb-16">
-                    <div className="overflow-hidden pb-4">
-                        <motion.h2
-                            initial={{ y: "100%" }}
-                            whileInView={{ y: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-                            className="text-4xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500 inline-block m-0"
-                        >
-                            Technical Arsenal
-                        </motion.h2>
-                    </div>
-                    <div className="overflow-hidden mt-4">
-                        <motion.div
-                            initial={{ x: "-100%" }}
-                            whileInView={{ x: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1], delay: 0.2 }}
-                            className="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto rounded-full"
-                        />
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    {categories.map((category, idx) => (
-                        <motion.div
-                            key={category.title}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.2, duration: 0.6 }}
-                            className="glass p-8 rounded-3xl hover:bg-white/5 transition-colors border border-purple-500/10 group"
-                        >
-                            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-                                <span className="w-2 h-8 bg-blue-500 rounded-full group-hover:bg-purple-500 transition-colors" />
-                                {category.title}
-                            </h3>
-
-                            <div className="space-y-6">
-                                {category.items.map((skill, index) => (
-                                    <div key={skill.name}>
-                                        <div className="flex justify-between text-sm font-medium mb-2">
-                                            <span className="text-gray-300">{skill.name}</span>
-                                            <span className="text-blue-400">{skill.level}%</span>
-                                        </div>
-                                        <div className="w-full h-2.5 bg-[#0a0710] rounded-full overflow-hidden border border-white/5">
-                                            <motion.div
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: `${skill.level}%` }}
-                                                viewport={{ once: true }}
-                                                transition={{
-                                                    delay: 0.3 + index * 0.1,
-                                                    duration: 1,
-                                                    ease: "easeOut",
-                                                }}
-                                                className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full relative"
-                                            >
-                                                <div className="absolute top-0 right-0 bottom-0 w-20 bg-white/20 blur-[2px] -skew-x-12 animate-[shimmer_2s_infinite]" />
-                                            </motion.div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+        <section id="skills" className="relative w-full h-screen bg-[#0A0A0A] overflow-hidden">
+            {/* Overlay UI */}
+            <div className="absolute top-20 w-full z-10 pointer-events-none text-center">
+                <motion.h2
+                    initial={{ opacity: 0, letterSpacing: "-0.05em" }}
+                    whileInView={{ opacity: 1, letterSpacing: "0.05em" }}
+                    transition={{ duration: 1 }}
+                    className="text-5xl md:text-7xl font-space font-bold text-white uppercase"
+                >
+                    Tech Universe
+                </motion.h2>
+                <p className="text-cyan-400 font-inter tracking-[0.3em] uppercase text-sm mt-4 opacity-70">
+                    The Neural Ecosystem of Shivang Singhal
+                </p>
             </div>
-            <style>{`
-        @keyframes shimmer {
-          100% {
-            transform: translateX(100%);
-          }
-        }
-      `}</style>
+
+            <Canvas camera={{ position: [0, 10, 20], fov: 45 }}>
+                <color attach="background" args={["#0A0A0A"]} />
+                <fog attach="fog" args={["#0A0A0A", 10, 50]} />
+                <ambientLight intensity={0.2} />
+                <Suspense fallback={null}>
+                    <Scene />
+                </Suspense>
+            </Canvas>
+
+            {/* Cinematic Glass Vignette */}
+            <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_150px_rgba(0,0,0,0.9)]" />
         </section>
     );
 }
