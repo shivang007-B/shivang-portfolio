@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hi, I'm Shivang Singhal 👋
+### UI/UX Designer & Full-Stack Developer
 
-## Getting Started
+I focus on human-centered design, translating complex problems into elegant, accessible, and meaningful digital interfaces. Currently pursuing B.Tech in Computer Science & AI, I bridge the gap between aesthetic design and robust engineering.
 
-First, run the development server:
+[Portfolio](https://shivang-portfolio-weld.vercel.app/) | [LinkedIn](#) | [Email](mailto:shivang2.0ksd@gmail.com)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 About Me
+- 🎓 **Education:** UG Student in CS & AI (Top 5% Academic Performance).
+- 💡 **Passion:** Crafting intuitive user experiences and solving complex problems through DSA and scalable web architecture.
+- 🏆 **Achievement:** 1st Place at Smart India Hackathon (AI-driven healthcare solution).
+- 📍 **Location:** Jaipur, Rajasthan (Open to Remote).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technical Arsenal
 
-## Learn More
+| Programming | Web Development | Core Concepts | Tools |
+| :--- | :--- | :--- | :--- |
+| C / C++ (90%) | React / Next.js (85%) | Data Structures & Algorithms | Git & GitHub |
+| Python (85%) | Node.js / Express (75%) | Object-Oriented Programming | Figma |
+| JS / TS (80%) | Tailwind CSS (95%) | DBMS | Docker |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📂 Selected Works
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🧠 [C.A.L.M Interface](https://shivang-portfolio-weld.vercel.app/)
+**AI-powered Mental Health Companion** An interactive platform for managing mental wellness using a safe, engaging UI.
+- **Tech:** Figma, React Native, Tailwind CSS.
 
-## Deploy on Vercel
+### 🛒 [E-Commerce Experience](https://shivang-portfolio-weld.vercel.app/)
+**Seamless Shopping Flow** Focuses on intuitive filtering and minimal checkout flows for high scalability.
+- **Tech:** Next.js, Tailwind, Framer Motion.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 📊 [Fintech Dashboard](https://shivang-portfolio-weld.vercel.app/)
+**Data Visualization Tool** Prioritizing clear metrics and accessibility for everyday financial tracking.
+- **Tech:** D3.js, React, Accessibility Standards.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📈 Milestones
+- **2026:** participate @ HackJKL v5.0 – Built a Real-time Campus Carbon Tracking System (IoT + Gamification).
+
+---
+
+## 📬 Get In Touch
+I’m always open to collaborating on innovative projects or discussing design systems.
+
+- **Email:** [shivang2.0ksd@gmail.com](mailto:shivang2.0ksd@gmail.com)
+- **Phone:** [+91 9784032687](tel:+919784032687)
+- **Portfolio:** [shivang-portfolio-weld.vercel.app](https://shivang-portfolio-weld.vercel.app/)
+
+---
+<p align="center">
+  Built with ❤️ using Next.js & Tailwind CSS
+</p>
