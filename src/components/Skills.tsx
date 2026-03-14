@@ -102,6 +102,7 @@ function BrainCore() {
             </mesh>
             <group ref={synapseRef}>
                 {synapseGeos.map(({ geo, color }, i) => (
+                    // @ts-ignore - React Three Fiber <line> conflicts with SVG <line>
                     <line key={i} geometry={geo}>
                         <lineBasicMaterial color={color} transparent opacity={0.42} />
                     </line>
