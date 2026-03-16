@@ -84,3 +84,15 @@ html {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+/* Add to the bottom of globals.css */
+@layer base {
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    touch-action: manipulation;
+  }
+}
+
+canvas {
+  pointer-events: none !important;
+}
