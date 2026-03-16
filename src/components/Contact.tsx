@@ -75,8 +75,8 @@ export default function ContactPortal() {
 
                     {/* Social Grid */}
                     <div className="grid grid-cols-2 gap-4">
-                        <SocialLink href="https://github.com/shivang" icon={<Github />} label="GitHub" />
-                        <SocialLink href="https://linkedin.com/in/shivang" icon={<Linkedin />} label="LinkedIn" />
+                        <SocialLink href="https://github.com/shivang007-B" icon={<Github />} label="GitHub" />
+                        <SocialLink href="https://linkedin.com/in/shivangsinghal007b" icon={<Linkedin />} label="LinkedIn" />
                     </div>
                 </div>
 
