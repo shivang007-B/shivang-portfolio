@@ -275,10 +275,12 @@ export default function Skills() {
             </div>
 
             {/* Canvas */}
-            <Canvas
-                className="absolute inset-0"
-                camera={{ position: [0, 6, 24], fov: 44 }}
-                gl={{ antialias: true, alpha: false }}
+           <Canvas
+              className="absolute inset-0"
+              camera={{ position: [0, 6, 24], fov: 44 }}
+  // ADD THIS: Limits resolution on mobile to save GPU
+              dpr={[1, 2]} 
+              gl={{ antialias: false, powerPreference: "high-performance" }}
             >
                 <color attach="background" args={["#000000"]} />
                 <fog attach="fog" args={["#000000", 18, 60]} />
