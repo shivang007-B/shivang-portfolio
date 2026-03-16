@@ -91,7 +91,7 @@ export default function About() {
                             ease: [0.33, 1, 0.68, 1],
                             delay: 0.1,
                         }}
-                        className="text-5xl md:text-7xl font-black tracking-tight"
+                        className="text-4xl md:text-7xl font-black tracking-tight"
                         style={{
                             fontFamily: "'Syne', sans-serif",
                             lineHeight: 1.05,
