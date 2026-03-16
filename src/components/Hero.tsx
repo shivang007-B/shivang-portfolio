@@ -31,7 +31,7 @@ export const HeroTitle = () => {
             variants={container}
             initial="hidden"
             animate="visible"
-            className="text-6xl md:text-8xl lg:text-9xl font-space font-bold text-white tracking-tighter"
+            className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-space font-bold text-white tracking-tighter"
         >
             {name.split("").map((char, index) => (
                 <motion.span key={index} variants={child} className="inline-block">
