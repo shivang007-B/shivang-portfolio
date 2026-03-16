@@ -66,10 +66,10 @@ export default function Navbar() {
                 </div>
 
                 {/* Mobile Toggle */}
-                <button
-                    className="md:hidden text-gray-600"
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
+                 <button
+                   className={`md:hidden ${scrolled ? "text-gray-900" : "text-white"}`}
+                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
